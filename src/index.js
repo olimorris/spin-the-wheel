@@ -7,6 +7,21 @@ const sectors = [
   { color: "#ce6d39", label: "Option 6" },
 ];
 
+const events = {
+  listeners: {},
+  addListener: function (eventName, fn) {
+    this.listeners[eventName] = this.listeners[eventName] || [];
+    this.listeners[eventName].push(fn);
+  },
+  fire: function (eventName, ...args) {
+    if (this.listeners[eventName]) {
+      for (let fn of this.listeners[eventName]) {
+        fn(...args);
+      }
+    }
+  },
+};
+
 const rand = (m, M) => Math.random() * (M - m) + m;
 const tot = sectors.length;
 const spinEl = document.querySelector("#spin");
@@ -20,6 +35,8 @@ const arc = TAU / sectors.length;
 const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
 let angVel = 0; // Angular velocity
 let ang = 0; // Angle in radians
+
+let spinButtonClicked = false;
 
 const getIndex = () => Math.floor(tot - (ang / TAU) * tot) % tot;
 
@@ -54,7 +71,14 @@ function rotate() {
 }
 
 function frame() {
-  if (!angVel) return;
+  // Fire an event after the wheel has stopped spinning
+  if (!angVel && spinButtonClicked) {
+    const finalSector = sectors[getIndex()];
+    events.fire("spinEnd", finalSector);
+    spinButtonClicked = false; // reset the flag
+    return;
+  }
+
   angVel *= friction; // Decrement velocity by friction
   if (angVel < 0.002) angVel = 0; // Bring to stop
   ang += angVel; // Update angle
@@ -73,7 +97,12 @@ function init() {
   engine(); // Start engine
   spinEl.addEventListener("click", () => {
     if (!angVel) angVel = rand(0.25, 0.45);
+    spinButtonClicked = true;
   });
 }
 
 init();
+
+events.addListener("spinEnd", (sector) => {
+  console.log(`Woop! You won ${sector.label}`);
+});
