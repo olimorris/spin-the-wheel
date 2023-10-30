@@ -1,10 +1,10 @@
 const sectors = [
-  { color: "#f5c34a", label: "SWEEETS!!" },
-  { color: "#ce6d39", label: "Option 2" },
-  { color: "#f5c34a", label: "Prize draw!" },
-  { color: "#ce6d39", label: "Option 4" },
-  { color: "#f5c34a", label: "Option 5" },
-  { color: "#ce6d39", label: "Option 6" },
+  { color: "#FF5A10", label: "Sweets" },
+  { color: "#FFBC03", label: "Prize Draw" },
+  { color: "#FF5A10", label: "Sweets" },
+  { color: "#FFBC03", label: "Prize Draw!" },
+  { color: "#FF5A10", label: "Sweets + Prize Draw!" },
+  { color: "#FFBC03", label: "You lose" },
 ];
 
 const events = {
