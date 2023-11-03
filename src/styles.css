@@ -10,7 +10,7 @@ body {
   place-items: center;
   margin: 0;
   height: 100vh;
-  background: linear-gradient(to bottom, #1fde5c, #b9c6bf);
+  background: linear-gradient(to bottom, #aaaaaa, #eeeeee);
 }
 
 #spin_the_wheel {
