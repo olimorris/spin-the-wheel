@@ -24,7 +24,9 @@ body {
 }
 
 #spin {
-  font: 1.5em/0 "Lato", sans-serif;
+  font:
+    1.5em/0 "Lato",
+    sans-serif;
   user-select: none;
   cursor: pointer;
   display: flex;
@@ -38,7 +40,9 @@ body {
   margin: -15%;
   background: #fff;
   color: #fff;
-  box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 0 0 8px currentColor,
+    0 0px 15px 5px rgba(0, 0, 0, 0.6);
   border-radius: 50%;
   transition: 0.8s;
 }
@@ -50,4 +54,18 @@ body {
   border: 10px solid transparent;
   border-bottom-color: currentColor;
   border-top: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
 }

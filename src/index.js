@@ -4,7 +4,9 @@ const sectors = [
   { color: "#FFBC03", text: "#333333", label: "Sweets" },
   { color: "#FF5A10", text: "#333333", label: "Prize draw!" },
   { color: "#FFBC03", text: "#333333", label: "Sweets + Prize draw!" },
-  { color: "#FF5A10", text: "#333333", label: "You lose" }
+  { color: "#FF5A10", text: "#333333", label: "You lose" },
+  { color: "#FFBC03", text: "#333333", label: "Hugs from Nick" },
+  { color: "#FF5A10", text: "#333333", label: "Sweets" },
 ];
 
 const events = {
@@ -19,7 +21,7 @@ const events = {
         fn(...args);
       }
     }
-  }
+  },
 };
 
 const rand = (m, M) => Math.random() * (M - m) + m;
